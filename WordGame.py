@@ -43,22 +43,22 @@ def main():
     guessNum = 1
     while guessNum <= 6:
     #Ask user for their guess
-    validWord = False
-    while validWord == False:
-        guess = input("Take a guess: ")
-        guess = guess.lower()
-        if guess not in wordList: 
-            print("Oops, that's not right. Try Again!")
-            validWord = False
-        else:
-            validWord = True
+        validWord = False
+        while validWord == False:
+            guess = input("Take a guess: ")
+            guess = guess.lower()
+            if guess not in wordList: 
+                print("Oops, that's not right. Try Again!")
+                validWord = False
+            else:
+                validWord = True
     #Give feedback using on their word:
-    feedback = rateGuess(guess, todayWord)
-    print(feedback)
-    if feedback == todayWord.Upper():
-        print("Guess is Correct!", guessNum, "attempts used")
-        break
-    guessNum = guessNum + 1
+        feedback = rateGuess(guess, todayWord)
+        print(feedback)
+        if feedback == todayWord.Upper():
+            print("Guess is Correct!", guessNum, "attempts used")
+            break
+guessNum = guessNum + 1
 
 print(" The word of the day was: ", todayWord)
 print("A very good day to you")
