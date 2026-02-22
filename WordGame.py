@@ -21,12 +21,13 @@ def rateGuess(myGuess, word):
     - Capital letter if the letter is in the right spot
     - Lower case letter if the letter is in the word but in the wrong spot
     - * if the letter is not in the word at all"""
+    feedback = ""
     for spot in range(5):
         myLetter = myGuess[spot]
         if inSpot(myLetter, word, spot) == True:
             feedback = feedback + myLetter.upper()  # right letter & spot
         elif inWord(myLetter, word) == True: 
-            feedback = feedback + myLetter.Lower()   #in word, wrong spot
+            feedback = feedback + myLetter.lower()   #in word, wrong spot
         else:
             feedback = feedback + "*"
     return feedback
@@ -55,7 +56,7 @@ def main():
     #Give feedback using on their word:
         feedback = rateGuess(guess, todayWord)
         print(feedback)
-        if feedback == todayWord.Upper():
+        if feedback == todayWord.upper():
             print("Guess is Correct!", guessNum, "attempts used")
             break
     guessNum = guessNum + 1
