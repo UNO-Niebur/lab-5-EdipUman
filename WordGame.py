@@ -58,7 +58,7 @@ def main():
         if feedback == todayWord.Upper():
             print("Guess is Correct!", guessNum, "attempts used")
             break
-guessNum = guessNum + 1
+    guessNum = guessNum + 1
 
 print(" The word of the day was: ", todayWord)
 print("A very good day to you")
