@@ -4,12 +4,16 @@ import random
 
 def inWord(letter, word):
     """Returns boolean if letter is anywhere in the given word"""
-
+    for ch in word:
+        if letter == ch:
+            return True
     return False
 
 def inSpot(letter, word, spot):
     """Returns boolean response if letter is in the given spot in the word."""
-
+    correctLetter = word[spot]
+    if letter == correctLetter:
+        return True
     return False
 
 def rateGuess(myGuess, word):
@@ -17,7 +21,15 @@ def rateGuess(myGuess, word):
     - Capital letter if the letter is in the right spot
     - Lower case letter if the letter is in the word but in the wrong spot
     - * if the letter is not in the word at all"""
-
+    for spot in range(5):
+        myLetter = myGuess[spot]
+        if inSpot(myLetter, word, spot) == True:
+            feedback = feedback + myLetter.upper()  # right letter & spot
+        elif inWord(myLetter, word) == True: 
+            feedback = feedback + myLetter.Lower()   #in word, wrong spot
+        else:
+            feedback = feedback + "*"
+    return feedback
 
 def main():
     #Pick a random word from the list of all words
@@ -28,12 +40,28 @@ def main():
     print(todayWord)
 
     #User should get 6 guesses to guess
-
+    guessNum = 1
+    while guessNum <= 6
     #Ask user for their guess
+    validWord = False
+    while validWord == False:
+        guess = input("Take a guess: ")
+        guess = guess.lower()
+        if guess not in wordList: 
+            print("Oops, that's not right. Try Again!")
+            validWord = False
+        else:
+            validWord = True
     #Give feedback using on their word:
+    feedback = rateGuess(guess, todayWord)
+    print(feedback)
+    if feedback == todayWord.Upper():
+        print("Guess is Correct!", guessNum, "attempts used")
+        break
+    guessNum = guessNum + 1
 
-
-
+print(" The word of the day was: ", todayWord)
+print("A very good day to you")
 
 
 if __name__ == '__main__':
