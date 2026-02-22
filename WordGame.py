@@ -60,8 +60,8 @@ def main():
             break
     guessNum = guessNum + 1
 
-print(" The word of the day was: ", todayWord)
-print("A very good day to you")
+    print(" The word of the day was: ", todayWord)
+    print("A very good day to you")
 
 
 if __name__ == '__main__':
