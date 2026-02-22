@@ -46,6 +46,8 @@ def main():
     #Ask user for their guess
         validWord = False
         while validWord == False:
+            if guessNum > 6 and guess != todayWord:
+                print("Out of guesses!")
             guess = input("Take a guess: ")
             guess = guess.lower()
             if guess not in wordList: 
@@ -59,7 +61,7 @@ def main():
         if feedback == todayWord.upper():
             print("Guess is Correct!", guessNum, "attempts used")
             break
-    guessNum = guessNum + 1
+        guessNum = guessNum + 1
 
     print(" The word of the day was: ", todayWord)
     print("A very good day to you")
